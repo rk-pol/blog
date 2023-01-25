@@ -54,7 +54,7 @@
                             @foreach($comments as $comment)
                             <div class="comment-wrap">
                                 <div class="comment-user-wrap">
-                                    <span class="comment-user-wrap-name">{{ $comment->user->username }}:</span>
+                                    <span class="comment-user-wrap-name">{{ $comment->user->name }}:</span>
                                     <span class="comment-user-wrap-date">{{ date_format($comment->created_at, 'Y-m-d') }}</span>
                                 </div>
                                 <div class="comment-user-text">
