@@ -1,0 +1,20 @@
+.swiper {
+    width: 400px;
+    height: 200px;
+}
+.swiper-slide {
+    background: #fff;
+    border-radius: 5px;
+}
+.comment-swiper-wrap{
+    background: #8aa39c;
+    padding: 10px 5px;
+}
+.comment-swiper-title,
+.comment-swiper-text {
+    padding-left: 10px;
+    text-align: center;
+}
+.comment-swiper-title > hr {
+    width: 75%;
+}
