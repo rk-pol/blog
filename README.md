@@ -6,10 +6,10 @@
 
 ### Project description:<br>
 
-*This is a simple blog with some amount of posts where users are able to leave their comments.<br>
+This is a simple blog with some amount of posts where users are able to leave their comments.<br>
 It includes three pages: "Home", "Posts" and "About".
-Home page consists of: hero image, recents news, a slider whit lasts comments, and a common additional information.
-Posts' page consist of all posts on the blog, which users can open and comment on.*
+Home page consists of: a hero image, the recent news, a slider whit lasts comments, and a common additional information.
+Posts' page consist of all posts on the blog, which users can open and comment on.
 
 •	Author: rk-pol 
 
