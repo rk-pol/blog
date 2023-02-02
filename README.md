@@ -1,13 +1,14 @@
 ## Main
 
-Project title:<br>
-```
-My blog
-```
-Project description:<br>
-This is a simple blog with some amount of posts where users are able to leave their comments. It includes three pages: "Home", "Posts" and "About".
+###Project title:<br>
+
+• My blog
+
+###Project description:<br>
+*This is a simple blog with some amount of posts where users are able to leave their comments.<br>
+It includes three pages: "Home", "Posts" and "About".
 Home page consists of: hero image, recents news, a slider whit lasts comments, and a common additional information.
-Posts' page consist of all posts on the blog, which users can open and comment on.
+Posts' page consist of all posts on the blog, which users can open and comment on.*
 
 •	Author: rk-pol 
 
