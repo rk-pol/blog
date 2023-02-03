@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
 
 class UserController extends Controller
 {
-    public static function update($id, $col_name, $col_value)
+    /**
+     * @param $id
+     * @param $col_name
+     * @param $col_value
+     */
+    public static function update($id, $col_name, $col_value): void
     {
         User::find($id)->update([$col_name => $col_value]);
     }

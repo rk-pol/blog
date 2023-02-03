@@ -3,36 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\User;
-use App\Models\UsersInteraction;
-use App\Services\DateFormat;
 use App\Services\PostService;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class PostController extends Controller
 {
-    public function index()
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function index(): View
     {
         return view('posts');
     }
 
-    public function posts()
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|View
+     */
+    public function posts(): View
     {
-        return view('posts', [
-                                'posts' => Post::select('*')
+        return view('posts', [ 'posts' => Post::select('*')
                                                     ->orderBy('created_at', 'desc')
                                                     ->paginate(10)
         ]);
     }
 
-    public function post($id)
+    /**
+     * @param $id
+     * @return View
+     */
+    public function post($id): View
     {
         return view('post', [
-                                'post' => Post::find($id),
-                                'recent_posts' => PostService::recent_posts($id),
-                                'comments' => Post::find($id)->comments
-                            ]
-        );
+                            'post' => Post::find($id),
+                            'recent_posts' => PostService::recent_posts($id),
+                            'comments' => Post::find($id)->comments
+        ]);
 
     }
 

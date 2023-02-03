@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class CommentService
 {
+    /**
+     * @param Request $request
+     * @return array
+     */
     public static function checkUsersInteraction(Request $request) : array
     {
         $user = UserService::getUserByIp();
@@ -43,32 +47,51 @@ class CommentService
         return self::getAmountOfLikesDislikes($request->id);
     }
 
+    /**
+     * @param $comment_id
+     * @param $col_name
+     */
     public static function incrementLikesDislikes($comment_id, $col_name) :void
     {
         CommentController::getComment($comment_id)->increment($col_name);
     }
 
+    /**
+     * @param $comment_id
+     * @param $col_name
+     */
     public static function decrementLikesDislikes($comment_id, $col_name) :void
     {
         CommentController::getComment($comment_id)->decrement($col_name);
     }
 
+    /**
+     * @param $comment_id
+     * @return array
+     */
     public static function getAmountOfLikesDislikes($comment_id) :array
     {
-        $amount_of_likes_dislikes = [
+        return [
             'total_likes' => self::getAmountOfLikes($comment_id),
             'total_dislikes' => self::getAmountOfDislikes($comment_id)
         ];
 
-        return $amount_of_likes_dislikes;
     }
 
-    protected static function getAmountOfLikes($comment_id)
+    /**
+     * @param $comment_id
+     * @return mixed
+     */
+    protected static function getAmountOfLikes($comment_id): Comment
     {
         return Comment::find($comment_id)->likes;
     }
 
-    protected static function getAmountOfDislikes($comment_id)
+    /**
+     * @param $comment_id
+     * @return mixed
+     */
+    protected static function getAmountOfDislikes($comment_id): Comment
     {
         return Comment::find($comment_id)->dislikes;
     }

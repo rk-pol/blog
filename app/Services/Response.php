@@ -1,20 +1,26 @@
 <?php
 
-
 namespace App\Services;
-
 
 class Response
 {
+    /**
+     * @param int $response_code
+     * @param array $data
+     * @return false|string
+     */
     public static function response($response_code = 500, $data = [])
     {
-//        var_dump($response_code);die();
         header('HTTP/1.1' . $response_code . self::responseStatus($response_code));
 
         return json_encode($data);
     }
 
-    protected static function responseStatus(int $code)
+    /**
+     * @param int $code
+     * @return string
+     */
+    protected static function responseStatus(int $code): string
     {
         $status = [
             200 => 'OK',

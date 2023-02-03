@@ -6,11 +6,16 @@ use App\Http\Requests\CommentRequest;
 use App\Models\Comment;
 use App\Models\User;
 use App\Services\UserService;
+use Illuminate\Http\RedirectResponse;
 
 
 class CommentController extends Controller
 {
-    public function create(CommentRequest $request)
+    /**
+     * @param CommentRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function create(CommentRequest $request): RedirectResponse
     {
         $validated = $request->validated();
 
@@ -25,11 +30,18 @@ class CommentController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id)
+    /**
+     * @param $id
+     */
+    public function delete($id): void
     {
         Comment::find($id)->delete();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public static function getComment($id)
     {
         return Comment::find($id);

@@ -7,7 +7,12 @@ use App\Models\Post;
 
 class PostService
 {
-    public static function recent_posts($id, $options = [])
+    /**
+     * @param $id
+     * @param array $options
+     * @return mixed
+     */
+    public static function recent_posts($id, $options = []): Post
     {
         if (empty($options)) {
             $options = [

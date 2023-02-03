@@ -6,6 +6,9 @@ use App\Models\UsersInteraction;
 
 class UsersInteractionController extends Controller
 {
+    /**
+     * @param $data
+     */
     public static function createLikeDislike($data) :void
     {
         UsersInteraction::create([
@@ -15,17 +18,30 @@ class UsersInteractionController extends Controller
         ]);
     }
 
-    public static function edit($id, $col_name, $col_value)
+    /**
+     * @param $id
+     * @param $col_name
+     * @param $col_value
+     */
+    public static function edit($id, $col_name, $col_value): void
     {
         UsersInteraction::find($id)->update([$col_name => $col_value]);
     }
 
+    /**
+     * @param $id
+     */
     public function deleteLikeDislike($id) :void
     {
         UsersInteraction::find($id)->delete();
     }
 
-    public static function getUsersInteraction($comment_id, $user_id)
+    /**
+     * @param $comment_id
+     * @param $user_id
+     * @return mixed
+     */
+    public static function getUsersInteraction($comment_id, $user_id): UsersInteraction
     {
         return UsersInteraction::where('comment_id', '=', $comment_id)
                                 ->where('user_id', '=', $user_id)
