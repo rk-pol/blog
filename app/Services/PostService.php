@@ -4,6 +4,7 @@
 namespace App\Services;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Collection;
 
 class PostService
 {
@@ -12,7 +13,7 @@ class PostService
      * @param array $options
      * @return mixed
      */
-    public static function recent_posts($id, $options = []): Post
+    public static function recent_posts($id, $options = []): Collection
     {
         if (empty($options)) {
             $options = [
