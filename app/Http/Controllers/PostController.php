@@ -24,7 +24,7 @@ class PostController extends Controller
     {
         return view('posts', [ 'posts' => Post::select('*')
                                                     ->orderBy('created_at', 'desc')
-                                                    ->paginate(10)
+                                                    ->paginate(12)
         ]);
     }
 

@@ -194,7 +194,7 @@ a {
     padding-right: 35px;
 }
 .posts {
-    padding-top: 50px;
+    padding: 50px 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
