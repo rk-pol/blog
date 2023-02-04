@@ -25,7 +25,7 @@
                             <span class="post-info-time-text">{{ $post->created_at }}</span>
                         </div>
                         <a href="post/{{ $post->id }}">
-                            <h2 class="post-info-title">{{ $post->title }}</h2>
+                            <h2 class="post-info-title">{{ Str::limit($post->title, 50) }}</h2>
                         </a>
                         <p class="post-info-description">{{ Str::limit($post->description, 200) }}</p>
                     </div>
