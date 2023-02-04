@@ -2,22 +2,26 @@
 
 @section('content')
     <section class="main current-post-wrap">
-        <div class="current-post">
-            <div class="current-post-info-time">
-                <span class="current-post-info-time-text">{{ date_format(date_create($post->created_at), 'j F y') }}</span>
+        @if($post)
+            <div class="current-post">
+                <div class="current-post-info-time">
+                    <span class="current-post-info-time-text">{{ date_format(date_create($post->created_at), 'j F y') }}</span>
+                </div>
+                <div class="current-post-title">
+                    <hr>
+                    <h1 class="current-post-title-text">{{ $post->title }}</h1>
+                    <hr>
+                </div>
+                <div class="current-post-img">
+                    <img src="{{ asset($post->image_path) }}" alt="">
+                </div>
+                <div class="current-post-description">
+                    <p>{{ $post->description }}</p>
+                </div>
             </div>
-            <div class="current-post-title">
-                <hr>
-                <h1 class="current-post-title-text">{{ $post->title }}</h1>
-                <hr>
-            </div>
-            <div class="current-post-img">
-                <img src="{{ asset($post->image_path) }}" alt="">
-            </div>
-            <div class="current-post-description">
-                <p>{{ $post->description }}</p>
-            </div>
-        </div>
+        @else
+            <p>Searching post was not founded</p>
+        @endif
         <div class="recent-posts-wrap">
             <hr>
             <div class="recent-posts-wrap-title">
@@ -41,7 +45,8 @@
                 <hr>
             </div>
             <div class="comments-wrap">
-                <div class="new-comment-wrap">
+                @if($post)
+                    <div class="new-comment-wrap">
                     <form action="/create_comment" class="new-comment" method="post">
                         @csrf
                         <input type="text" placeholder="Name" name="username" class="new-comment-username" required minlength="2">
@@ -82,6 +87,7 @@
                             @endforeach
                         </div>
                 </div>
+                @endif
             </div>
         </div>
 

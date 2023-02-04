@@ -239,9 +239,28 @@ a {
     color: #fff;
 }
 
+.search-wrap {
+    width: 100%;
+    padding: 0px 176px 16px 0px;
+    display: flex;
+    justify-content: right;
+}
+.searching-field-wrap {
+    width: 390px;
+}
+.searching-field-wrap >form {
+    display: flex;
+    justify-content: space-between;
+}
+.searching-field {
+    padding-left: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: none;
+}
 
 .posts-wrap{
-    padding: 50px 0 100px 0;
+    padding: 10px 0 100px 0;
     display: flex;
     justify-content: center;
     flex-direction: column;

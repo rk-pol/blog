@@ -2,6 +2,15 @@
 
 @section('content')
     <section class="main posts-wrap">
+        <div class="search-wrap">
+            <div class="searching-field-wrap">
+                <form action="/search" method="get">
+                    <input class="searching-field" type="text" name="searched_field" placeholder="Searching...">
+                    <input class="search-btn" type="submit" name="search" value="Search">
+                </form>
+
+            </div>
+        </div>
         <div class="posts-title">
             <h2>All my stories</h2>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Services\PostService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -41,4 +42,20 @@ class PostController extends Controller
 
     }
 
+
+    public function getPostBySearching(Request $request)
+    {
+        $validated = $request->validate([
+            'searched_field' => 'required|string'
+        ]);
+
+        $post = Post::where('title', 'like', '%' . $validated['searched_field'] . '%')->
+                            orWhere('description', 'like', '%' . $validated['searched_field'] . '%')->first();
+
+        return view('post', [
+                        'post' => $post,
+                        'recent_posts' => PostService::recent_posts($post->id),
+                        'comments' => Post::find($post->id)->comments
+        ]);
+    }
 }

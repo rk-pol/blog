@@ -27,7 +27,9 @@ Route::middleware(['ip_user_exists'])->group(function () {
     Route::post('/post/comment/decrease', [CommentService::class, 'checkUsersInteraction']);
     Route::get('/about', [AboutController::class, 'index']);
     Route::post('/create_comment', [CommentController::class, 'create']);
+    Route::get('/search', [PostController::class, 'getPostBySearching']);
 });
+
 Route::post('/subscribe', [NewsletterController::class, 'subscribe']);
 
 
